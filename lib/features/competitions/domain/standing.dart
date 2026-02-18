@@ -38,7 +38,7 @@ class StandingRow with _$StandingRow {
 @freezed
 class StandingTable with _$StandingTable {
   const factory StandingTable({
-    required String type, // TOTAL, HOME, AWAY
+    required String type,
     String? group,
     required List<StandingRow> table,
   }) = _StandingTable;
