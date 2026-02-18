@@ -4,6 +4,7 @@ import '../features/competitions/presentation/competitions_screen.dart';
 import '../features/competitions/presentation/competition_screen.dart';
 import '../features/teams/presentation/team_screen.dart';
 import '../features/players/presentation/player_screen.dart';
+import '../features/matches/presentation/match_detail_screen.dart';
 import '../shared/widgets/bottom_nav_shell.dart';
 
 final appRouter = GoRouter(
@@ -41,6 +42,13 @@ final appRouter = GoRouter(
         final id = int.parse(state.pathParameters['id']!);
         final name = state.uri.queryParameters['name'] ?? '';
         return TeamScreen(teamId: id, teamName: name);
+      },
+    ),
+    GoRoute(
+      path: '/match/:id',
+      builder: (context, state) {
+        final id = int.parse(state.pathParameters['id']!);
+        return MatchDetailScreen(matchId: id);
       },
     ),
     GoRoute(

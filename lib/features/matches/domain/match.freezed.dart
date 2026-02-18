@@ -1073,6 +1073,526 @@ abstract class _GoalScorer implements GoalScorer {
       throw _privateConstructorUsedError;
 }
 
+Booking _$BookingFromJson(Map<String, dynamic> json) {
+  return _Booking.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Booking {
+  int? get minute => throw _privateConstructorUsedError;
+  String? get card =>
+      throw _privateConstructorUsedError; // YELLOW, RED, YELLOW_RED
+  GoalScorer? get player => throw _privateConstructorUsedError;
+  MatchTeam? get team => throw _privateConstructorUsedError;
+
+  /// Serializes this Booking to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of Booking
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $BookingCopyWith<Booking> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $BookingCopyWith<$Res> {
+  factory $BookingCopyWith(Booking value, $Res Function(Booking) then) =
+      _$BookingCopyWithImpl<$Res, Booking>;
+  @useResult
+  $Res call({int? minute, String? card, GoalScorer? player, MatchTeam? team});
+
+  $GoalScorerCopyWith<$Res>? get player;
+  $MatchTeamCopyWith<$Res>? get team;
+}
+
+/// @nodoc
+class _$BookingCopyWithImpl<$Res, $Val extends Booking>
+    implements $BookingCopyWith<$Res> {
+  _$BookingCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of Booking
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? minute = freezed,
+    Object? card = freezed,
+    Object? player = freezed,
+    Object? team = freezed,
+  }) {
+    return _then(
+      _value.copyWith(
+            minute: freezed == minute
+                ? _value.minute
+                : minute // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            card: freezed == card
+                ? _value.card
+                : card // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            player: freezed == player
+                ? _value.player
+                : player // ignore: cast_nullable_to_non_nullable
+                      as GoalScorer?,
+            team: freezed == team
+                ? _value.team
+                : team // ignore: cast_nullable_to_non_nullable
+                      as MatchTeam?,
+          )
+          as $Val,
+    );
+  }
+
+  /// Create a copy of Booking
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $GoalScorerCopyWith<$Res>? get player {
+    if (_value.player == null) {
+      return null;
+    }
+
+    return $GoalScorerCopyWith<$Res>(_value.player!, (value) {
+      return _then(_value.copyWith(player: value) as $Val);
+    });
+  }
+
+  /// Create a copy of Booking
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $MatchTeamCopyWith<$Res>? get team {
+    if (_value.team == null) {
+      return null;
+    }
+
+    return $MatchTeamCopyWith<$Res>(_value.team!, (value) {
+      return _then(_value.copyWith(team: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$BookingImplCopyWith<$Res> implements $BookingCopyWith<$Res> {
+  factory _$$BookingImplCopyWith(
+    _$BookingImpl value,
+    $Res Function(_$BookingImpl) then,
+  ) = __$$BookingImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int? minute, String? card, GoalScorer? player, MatchTeam? team});
+
+  @override
+  $GoalScorerCopyWith<$Res>? get player;
+  @override
+  $MatchTeamCopyWith<$Res>? get team;
+}
+
+/// @nodoc
+class __$$BookingImplCopyWithImpl<$Res>
+    extends _$BookingCopyWithImpl<$Res, _$BookingImpl>
+    implements _$$BookingImplCopyWith<$Res> {
+  __$$BookingImplCopyWithImpl(
+    _$BookingImpl _value,
+    $Res Function(_$BookingImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of Booking
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? minute = freezed,
+    Object? card = freezed,
+    Object? player = freezed,
+    Object? team = freezed,
+  }) {
+    return _then(
+      _$BookingImpl(
+        minute: freezed == minute
+            ? _value.minute
+            : minute // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        card: freezed == card
+            ? _value.card
+            : card // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        player: freezed == player
+            ? _value.player
+            : player // ignore: cast_nullable_to_non_nullable
+                  as GoalScorer?,
+        team: freezed == team
+            ? _value.team
+            : team // ignore: cast_nullable_to_non_nullable
+                  as MatchTeam?,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$BookingImpl implements _Booking {
+  const _$BookingImpl({this.minute, this.card, this.player, this.team});
+
+  factory _$BookingImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BookingImplFromJson(json);
+
+  @override
+  final int? minute;
+  @override
+  final String? card;
+  // YELLOW, RED, YELLOW_RED
+  @override
+  final GoalScorer? player;
+  @override
+  final MatchTeam? team;
+
+  @override
+  String toString() {
+    return 'Booking(minute: $minute, card: $card, player: $player, team: $team)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$BookingImpl &&
+            (identical(other.minute, minute) || other.minute == minute) &&
+            (identical(other.card, card) || other.card == card) &&
+            (identical(other.player, player) || other.player == player) &&
+            (identical(other.team, team) || other.team == team));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, minute, card, player, team);
+
+  /// Create a copy of Booking
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$BookingImplCopyWith<_$BookingImpl> get copyWith =>
+      __$$BookingImplCopyWithImpl<_$BookingImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$BookingImplToJson(this);
+  }
+}
+
+abstract class _Booking implements Booking {
+  const factory _Booking({
+    final int? minute,
+    final String? card,
+    final GoalScorer? player,
+    final MatchTeam? team,
+  }) = _$BookingImpl;
+
+  factory _Booking.fromJson(Map<String, dynamic> json) = _$BookingImpl.fromJson;
+
+  @override
+  int? get minute;
+  @override
+  String? get card; // YELLOW, RED, YELLOW_RED
+  @override
+  GoalScorer? get player;
+  @override
+  MatchTeam? get team;
+
+  /// Create a copy of Booking
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$BookingImplCopyWith<_$BookingImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Substitution _$SubstitutionFromJson(Map<String, dynamic> json) {
+  return _Substitution.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Substitution {
+  int? get minute => throw _privateConstructorUsedError;
+  GoalScorer? get playerOut => throw _privateConstructorUsedError;
+  GoalScorer? get playerIn => throw _privateConstructorUsedError;
+  MatchTeam? get team => throw _privateConstructorUsedError;
+
+  /// Serializes this Substitution to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of Substitution
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $SubstitutionCopyWith<Substitution> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SubstitutionCopyWith<$Res> {
+  factory $SubstitutionCopyWith(
+    Substitution value,
+    $Res Function(Substitution) then,
+  ) = _$SubstitutionCopyWithImpl<$Res, Substitution>;
+  @useResult
+  $Res call({
+    int? minute,
+    GoalScorer? playerOut,
+    GoalScorer? playerIn,
+    MatchTeam? team,
+  });
+
+  $GoalScorerCopyWith<$Res>? get playerOut;
+  $GoalScorerCopyWith<$Res>? get playerIn;
+  $MatchTeamCopyWith<$Res>? get team;
+}
+
+/// @nodoc
+class _$SubstitutionCopyWithImpl<$Res, $Val extends Substitution>
+    implements $SubstitutionCopyWith<$Res> {
+  _$SubstitutionCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of Substitution
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? minute = freezed,
+    Object? playerOut = freezed,
+    Object? playerIn = freezed,
+    Object? team = freezed,
+  }) {
+    return _then(
+      _value.copyWith(
+            minute: freezed == minute
+                ? _value.minute
+                : minute // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            playerOut: freezed == playerOut
+                ? _value.playerOut
+                : playerOut // ignore: cast_nullable_to_non_nullable
+                      as GoalScorer?,
+            playerIn: freezed == playerIn
+                ? _value.playerIn
+                : playerIn // ignore: cast_nullable_to_non_nullable
+                      as GoalScorer?,
+            team: freezed == team
+                ? _value.team
+                : team // ignore: cast_nullable_to_non_nullable
+                      as MatchTeam?,
+          )
+          as $Val,
+    );
+  }
+
+  /// Create a copy of Substitution
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $GoalScorerCopyWith<$Res>? get playerOut {
+    if (_value.playerOut == null) {
+      return null;
+    }
+
+    return $GoalScorerCopyWith<$Res>(_value.playerOut!, (value) {
+      return _then(_value.copyWith(playerOut: value) as $Val);
+    });
+  }
+
+  /// Create a copy of Substitution
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $GoalScorerCopyWith<$Res>? get playerIn {
+    if (_value.playerIn == null) {
+      return null;
+    }
+
+    return $GoalScorerCopyWith<$Res>(_value.playerIn!, (value) {
+      return _then(_value.copyWith(playerIn: value) as $Val);
+    });
+  }
+
+  /// Create a copy of Substitution
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $MatchTeamCopyWith<$Res>? get team {
+    if (_value.team == null) {
+      return null;
+    }
+
+    return $MatchTeamCopyWith<$Res>(_value.team!, (value) {
+      return _then(_value.copyWith(team: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$SubstitutionImplCopyWith<$Res>
+    implements $SubstitutionCopyWith<$Res> {
+  factory _$$SubstitutionImplCopyWith(
+    _$SubstitutionImpl value,
+    $Res Function(_$SubstitutionImpl) then,
+  ) = __$$SubstitutionImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({
+    int? minute,
+    GoalScorer? playerOut,
+    GoalScorer? playerIn,
+    MatchTeam? team,
+  });
+
+  @override
+  $GoalScorerCopyWith<$Res>? get playerOut;
+  @override
+  $GoalScorerCopyWith<$Res>? get playerIn;
+  @override
+  $MatchTeamCopyWith<$Res>? get team;
+}
+
+/// @nodoc
+class __$$SubstitutionImplCopyWithImpl<$Res>
+    extends _$SubstitutionCopyWithImpl<$Res, _$SubstitutionImpl>
+    implements _$$SubstitutionImplCopyWith<$Res> {
+  __$$SubstitutionImplCopyWithImpl(
+    _$SubstitutionImpl _value,
+    $Res Function(_$SubstitutionImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of Substitution
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? minute = freezed,
+    Object? playerOut = freezed,
+    Object? playerIn = freezed,
+    Object? team = freezed,
+  }) {
+    return _then(
+      _$SubstitutionImpl(
+        minute: freezed == minute
+            ? _value.minute
+            : minute // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        playerOut: freezed == playerOut
+            ? _value.playerOut
+            : playerOut // ignore: cast_nullable_to_non_nullable
+                  as GoalScorer?,
+        playerIn: freezed == playerIn
+            ? _value.playerIn
+            : playerIn // ignore: cast_nullable_to_non_nullable
+                  as GoalScorer?,
+        team: freezed == team
+            ? _value.team
+            : team // ignore: cast_nullable_to_non_nullable
+                  as MatchTeam?,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$SubstitutionImpl implements _Substitution {
+  const _$SubstitutionImpl({
+    this.minute,
+    this.playerOut,
+    this.playerIn,
+    this.team,
+  });
+
+  factory _$SubstitutionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SubstitutionImplFromJson(json);
+
+  @override
+  final int? minute;
+  @override
+  final GoalScorer? playerOut;
+  @override
+  final GoalScorer? playerIn;
+  @override
+  final MatchTeam? team;
+
+  @override
+  String toString() {
+    return 'Substitution(minute: $minute, playerOut: $playerOut, playerIn: $playerIn, team: $team)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SubstitutionImpl &&
+            (identical(other.minute, minute) || other.minute == minute) &&
+            (identical(other.playerOut, playerOut) ||
+                other.playerOut == playerOut) &&
+            (identical(other.playerIn, playerIn) ||
+                other.playerIn == playerIn) &&
+            (identical(other.team, team) || other.team == team));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, minute, playerOut, playerIn, team);
+
+  /// Create a copy of Substitution
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SubstitutionImplCopyWith<_$SubstitutionImpl> get copyWith =>
+      __$$SubstitutionImplCopyWithImpl<_$SubstitutionImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$SubstitutionImplToJson(this);
+  }
+}
+
+abstract class _Substitution implements Substitution {
+  const factory _Substitution({
+    final int? minute,
+    final GoalScorer? playerOut,
+    final GoalScorer? playerIn,
+    final MatchTeam? team,
+  }) = _$SubstitutionImpl;
+
+  factory _Substitution.fromJson(Map<String, dynamic> json) =
+      _$SubstitutionImpl.fromJson;
+
+  @override
+  int? get minute;
+  @override
+  GoalScorer? get playerOut;
+  @override
+  GoalScorer? get playerIn;
+  @override
+  MatchTeam? get team;
+
+  /// Create a copy of Substitution
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SubstitutionImplCopyWith<_$SubstitutionImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 FootballMatch _$FootballMatchFromJson(Map<String, dynamic> json) {
   return _FootballMatch.fromJson(json);
 }
@@ -1088,6 +1608,8 @@ mixin _$FootballMatch {
   MatchTeam get awayTeam => throw _privateConstructorUsedError;
   Score get score => throw _privateConstructorUsedError;
   List<Goal> get goals => throw _privateConstructorUsedError;
+  List<Booking> get bookings => throw _privateConstructorUsedError;
+  List<Substitution> get substitutions => throw _privateConstructorUsedError;
 
   /// Serializes this FootballMatch to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -1116,6 +1638,8 @@ abstract class $FootballMatchCopyWith<$Res> {
     MatchTeam awayTeam,
     Score score,
     List<Goal> goals,
+    List<Booking> bookings,
+    List<Substitution> substitutions,
   });
 
   $MatchTeamCopyWith<$Res> get homeTeam;
@@ -1147,6 +1671,8 @@ class _$FootballMatchCopyWithImpl<$Res, $Val extends FootballMatch>
     Object? awayTeam = null,
     Object? score = null,
     Object? goals = null,
+    Object? bookings = null,
+    Object? substitutions = null,
   }) {
     return _then(
       _value.copyWith(
@@ -1186,6 +1712,14 @@ class _$FootballMatchCopyWithImpl<$Res, $Val extends FootballMatch>
                 ? _value.goals
                 : goals // ignore: cast_nullable_to_non_nullable
                       as List<Goal>,
+            bookings: null == bookings
+                ? _value.bookings
+                : bookings // ignore: cast_nullable_to_non_nullable
+                      as List<Booking>,
+            substitutions: null == substitutions
+                ? _value.substitutions
+                : substitutions // ignore: cast_nullable_to_non_nullable
+                      as List<Substitution>,
           )
           as $Val,
     );
@@ -1241,6 +1775,8 @@ abstract class _$$FootballMatchImplCopyWith<$Res>
     MatchTeam awayTeam,
     Score score,
     List<Goal> goals,
+    List<Booking> bookings,
+    List<Substitution> substitutions,
   });
 
   @override
@@ -1274,6 +1810,8 @@ class __$$FootballMatchImplCopyWithImpl<$Res>
     Object? awayTeam = null,
     Object? score = null,
     Object? goals = null,
+    Object? bookings = null,
+    Object? substitutions = null,
   }) {
     return _then(
       _$FootballMatchImpl(
@@ -1313,6 +1851,14 @@ class __$$FootballMatchImplCopyWithImpl<$Res>
             ? _value._goals
             : goals // ignore: cast_nullable_to_non_nullable
                   as List<Goal>,
+        bookings: null == bookings
+            ? _value._bookings
+            : bookings // ignore: cast_nullable_to_non_nullable
+                  as List<Booking>,
+        substitutions: null == substitutions
+            ? _value._substitutions
+            : substitutions // ignore: cast_nullable_to_non_nullable
+                  as List<Substitution>,
       ),
     );
   }
@@ -1331,7 +1877,11 @@ class _$FootballMatchImpl implements _FootballMatch {
     required this.awayTeam,
     required this.score,
     final List<Goal> goals = const [],
-  }) : _goals = goals;
+    final List<Booking> bookings = const [],
+    final List<Substitution> substitutions = const [],
+  }) : _goals = goals,
+       _bookings = bookings,
+       _substitutions = substitutions;
 
   factory _$FootballMatchImpl.fromJson(Map<String, dynamic> json) =>
       _$$FootballMatchImplFromJson(json);
@@ -1361,9 +1911,27 @@ class _$FootballMatchImpl implements _FootballMatch {
     return EqualUnmodifiableListView(_goals);
   }
 
+  final List<Booking> _bookings;
+  @override
+  @JsonKey()
+  List<Booking> get bookings {
+    if (_bookings is EqualUnmodifiableListView) return _bookings;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_bookings);
+  }
+
+  final List<Substitution> _substitutions;
+  @override
+  @JsonKey()
+  List<Substitution> get substitutions {
+    if (_substitutions is EqualUnmodifiableListView) return _substitutions;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_substitutions);
+  }
+
   @override
   String toString() {
-    return 'FootballMatch(id: $id, utcDate: $utcDate, status: $status, matchday: $matchday, stage: $stage, homeTeam: $homeTeam, awayTeam: $awayTeam, score: $score, goals: $goals)';
+    return 'FootballMatch(id: $id, utcDate: $utcDate, status: $status, matchday: $matchday, stage: $stage, homeTeam: $homeTeam, awayTeam: $awayTeam, score: $score, goals: $goals, bookings: $bookings, substitutions: $substitutions)';
   }
 
   @override
@@ -1382,7 +1950,12 @@ class _$FootballMatchImpl implements _FootballMatch {
             (identical(other.awayTeam, awayTeam) ||
                 other.awayTeam == awayTeam) &&
             (identical(other.score, score) || other.score == score) &&
-            const DeepCollectionEquality().equals(other._goals, _goals));
+            const DeepCollectionEquality().equals(other._goals, _goals) &&
+            const DeepCollectionEquality().equals(other._bookings, _bookings) &&
+            const DeepCollectionEquality().equals(
+              other._substitutions,
+              _substitutions,
+            ));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1398,6 +1971,8 @@ class _$FootballMatchImpl implements _FootballMatch {
     awayTeam,
     score,
     const DeepCollectionEquality().hash(_goals),
+    const DeepCollectionEquality().hash(_bookings),
+    const DeepCollectionEquality().hash(_substitutions),
   );
 
   /// Create a copy of FootballMatch
@@ -1425,6 +2000,8 @@ abstract class _FootballMatch implements FootballMatch {
     required final MatchTeam awayTeam,
     required final Score score,
     final List<Goal> goals,
+    final List<Booking> bookings,
+    final List<Substitution> substitutions,
   }) = _$FootballMatchImpl;
 
   factory _FootballMatch.fromJson(Map<String, dynamic> json) =
@@ -1448,6 +2025,10 @@ abstract class _FootballMatch implements FootballMatch {
   Score get score;
   @override
   List<Goal> get goals;
+  @override
+  List<Booking> get bookings;
+  @override
+  List<Substitution> get substitutions;
 
   /// Create a copy of FootballMatch
   /// with the given fields replaced by the non-null parameter values.

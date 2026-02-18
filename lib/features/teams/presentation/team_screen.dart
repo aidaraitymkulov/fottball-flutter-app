@@ -106,28 +106,32 @@ class _TeamMatchesTab extends ConsumerWidget {
 
           return Card(
             margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-            child: Padding(
-              padding: const EdgeInsets.all(12),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      m.homeTeam.shortName ?? m.homeTeam.name,
-                      textAlign: TextAlign.end,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    child: Text(
-                      isFinished ? '$home : $away' : 'vs',
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
+            clipBehavior: Clip.hardEdge,
+            child: InkWell(
+              onTap: () => context.push('/match/${m.id}'),
+              child: Padding(
+                padding: const EdgeInsets.all(12),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        m.homeTeam.shortName ?? m.homeTeam.name,
+                        textAlign: TextAlign.end,
                       ),
                     ),
-                  ),
-                  Expanded(child: Text(m.awayTeam.shortName ?? m.awayTeam.name)),
-                ],
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
+                      child: Text(
+                        isFinished ? '$home : $away' : 'vs',
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                    Expanded(child: Text(m.awayTeam.shortName ?? m.awayTeam.name)),
+                  ],
+                ),
               ),
             ),
           );

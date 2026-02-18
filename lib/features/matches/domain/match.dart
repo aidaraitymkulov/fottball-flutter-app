@@ -63,6 +63,32 @@ class GoalScorer with _$GoalScorer {
 }
 
 @freezed
+class Booking with _$Booking {
+  const factory Booking({
+    int? minute,
+    String? card, // YELLOW, RED, YELLOW_RED
+    GoalScorer? player,
+    MatchTeam? team,
+  }) = _Booking;
+
+  factory Booking.fromJson(Map<String, dynamic> json) =>
+      _$BookingFromJson(json);
+}
+
+@freezed
+class Substitution with _$Substitution {
+  const factory Substitution({
+    int? minute,
+    GoalScorer? playerOut,
+    GoalScorer? playerIn,
+    MatchTeam? team,
+  }) = _Substitution;
+
+  factory Substitution.fromJson(Map<String, dynamic> json) =>
+      _$SubstitutionFromJson(json);
+}
+
+@freezed
 class FootballMatch with _$FootballMatch {
   const factory FootballMatch({
     required int id,
@@ -74,6 +100,8 @@ class FootballMatch with _$FootballMatch {
     required MatchTeam awayTeam,
     required Score score,
     @Default([]) List<Goal> goals,
+    @Default([]) List<Booking> bookings,
+    @Default([]) List<Substitution> substitutions,
   }) = _FootballMatch;
 
   factory FootballMatch.fromJson(Map<String, dynamic> json) =>

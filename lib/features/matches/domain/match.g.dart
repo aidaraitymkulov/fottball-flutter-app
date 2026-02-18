@@ -80,6 +80,48 @@ _$GoalScorerImpl _$$GoalScorerImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$GoalScorerImplToJson(_$GoalScorerImpl instance) =>
     <String, dynamic>{'id': instance.id, 'name': instance.name};
 
+_$BookingImpl _$$BookingImplFromJson(Map<String, dynamic> json) =>
+    _$BookingImpl(
+      minute: (json['minute'] as num?)?.toInt(),
+      card: json['card'] as String?,
+      player: json['player'] == null
+          ? null
+          : GoalScorer.fromJson(json['player'] as Map<String, dynamic>),
+      team: json['team'] == null
+          ? null
+          : MatchTeam.fromJson(json['team'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$BookingImplToJson(_$BookingImpl instance) =>
+    <String, dynamic>{
+      'minute': instance.minute,
+      'card': instance.card,
+      'player': instance.player,
+      'team': instance.team,
+    };
+
+_$SubstitutionImpl _$$SubstitutionImplFromJson(Map<String, dynamic> json) =>
+    _$SubstitutionImpl(
+      minute: (json['minute'] as num?)?.toInt(),
+      playerOut: json['playerOut'] == null
+          ? null
+          : GoalScorer.fromJson(json['playerOut'] as Map<String, dynamic>),
+      playerIn: json['playerIn'] == null
+          ? null
+          : GoalScorer.fromJson(json['playerIn'] as Map<String, dynamic>),
+      team: json['team'] == null
+          ? null
+          : MatchTeam.fromJson(json['team'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$SubstitutionImplToJson(_$SubstitutionImpl instance) =>
+    <String, dynamic>{
+      'minute': instance.minute,
+      'playerOut': instance.playerOut,
+      'playerIn': instance.playerIn,
+      'team': instance.team,
+    };
+
 _$FootballMatchImpl _$$FootballMatchImplFromJson(Map<String, dynamic> json) =>
     _$FootballMatchImpl(
       id: (json['id'] as num).toInt(),
@@ -95,6 +137,16 @@ _$FootballMatchImpl _$$FootballMatchImplFromJson(Map<String, dynamic> json) =>
               ?.map((e) => Goal.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
+      bookings:
+          (json['bookings'] as List<dynamic>?)
+              ?.map((e) => Booking.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+      substitutions:
+          (json['substitutions'] as List<dynamic>?)
+              ?.map((e) => Substitution.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$$FootballMatchImplToJson(_$FootballMatchImpl instance) =>
@@ -108,4 +160,6 @@ Map<String, dynamic> _$$FootballMatchImplToJson(_$FootballMatchImpl instance) =>
       'awayTeam': instance.awayTeam,
       'score': instance.score,
       'goals': instance.goals,
+      'bookings': instance.bookings,
+      'substitutions': instance.substitutions,
     };
