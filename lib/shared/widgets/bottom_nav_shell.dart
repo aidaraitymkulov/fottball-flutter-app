@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/core/providers/theme_mode_providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../features/auth/domain/auth_providers.dart';
@@ -7,6 +8,19 @@ class BottomNavShell extends ConsumerWidget {
   final Widget child;
 
   const BottomNavShell({super.key, required this.child});
+
+  bool _isDark(WidgetRef ref, BuildContext context) {
+    final currentTheme = ref.watch(themeModeProvider);
+    return currentTheme == ThemeMode.dark ||
+        (currentTheme == ThemeMode.system &&
+        MediaQuery.of(context).platformBrightness == Brightness.dark);
+  }
+
+  void _toogleTheme(WidgetRef ref, bool isDark) {
+    ref.read(themeModeProvider.notifier).setTheme(
+      isDark ? ThemeMode.light : ThemeMode.dark,
+    );
+  }
 
   int _selectedIndex(BuildContext context) {
     final location = GoRouterState.of(context).uri.toString();
@@ -40,10 +54,15 @@ class BottomNavShell extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final isDark = _isDark(ref, context);
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         actions: [
+          IconButton(
+              icon: Icon(isDark ? Icons.light_mode : Icons.dark_mode),
+            onPressed: () => _toogleTheme(ref, isDark),
+          ),
           IconButton(
             icon: const Icon(Icons.logout),
             tooltip: 'Выйти',

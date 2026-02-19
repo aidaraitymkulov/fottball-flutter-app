@@ -10,7 +10,7 @@ import '../features/players/presentation/player_screen.dart';
 import '../features/matches/presentation/match_detail_screen.dart';
 import '../shared/widgets/bottom_nav_shell.dart';
 
-GoRouter createRouter(WidgetRef ref) {
+GoRouter createRouter(Ref ref) {
   return GoRouter(
     initialLocation: '/competitions',
     redirect: (context, state) {
@@ -78,9 +78,8 @@ GoRouter createRouter(WidgetRef ref) {
   );
 }
 
-// Listenble который слушает authProvider и уведомляет роутер о смене статуса
 class _AuthStatusListenable extends ChangeNotifier {
-  _AuthStatusListenable(WidgetRef ref) {
+  _AuthStatusListenable(Ref ref) {
     ref.listen(authProvider, (prev, next) => notifyListeners());
   }
 }

@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_app/core/router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../api/api_client.dart';
 import '../../features/auth/data/token_storage.dart';
@@ -8,6 +10,9 @@ import '../../features/teams/data/teams_repository.dart';
 import '../../features/players/data/players_repository.dart';
 
 final tokenStorageProvider = Provider<TokenStorage>((ref) => TokenStorage());
+
+final routerProvider = Provider((ref)  => createRouter(ref));
+
 
 final authRepositoryProvider = Provider<AuthRepository>(
   (ref) => AuthRepository(ref.watch(tokenStorageProvider)),
@@ -35,3 +40,4 @@ final teamsRepositoryProvider = Provider<TeamsRepository>(
 final playersRepositoryProvider = Provider<PlayersRepository>(
   (ref) => PlayersRepository(ref.watch(apiClientProvider)),
 );
+

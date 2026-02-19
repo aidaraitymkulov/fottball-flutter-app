@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/core/providers/core_providers.dart';
+import 'package:flutter_app/core/providers/theme_mode_providers.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'core/router.dart';
@@ -14,18 +16,26 @@ class FootballApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final router = createRouter(ref);
+    final themeMode = ref.watch(themeModeProvider);
     return MaterialApp.router(
       title: 'Football',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color(0xFF1B5E20),
+          brightness: Brightness.light,
+        ),
+        useMaterial3: true
+      ),
+      darkTheme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF1B5E20),
           brightness: Brightness.dark,
         ),
         useMaterial3: true,
       ),
-      routerConfig: router,
+      themeMode: themeMode,
+      routerConfig: ref.watch(routerProvider),
     );
   }
 }
